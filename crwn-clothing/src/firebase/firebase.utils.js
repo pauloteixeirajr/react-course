@@ -29,6 +29,18 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogleMethod = () =>
   auth.signInWithPopup(googleProvider);
 
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged({
+      next: authUser => {
+        unsubscribe();
+        resolve(authUser);
+      },
+      error: reject,
+    });
+  });
+};
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
