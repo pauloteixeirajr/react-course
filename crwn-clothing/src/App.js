@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import Header from './components/header/header.component';
 import Spinner from './components/spinner/spinner.component';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 import { GlobalStyles } from './global.styles';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
@@ -27,18 +28,20 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyles />
       <Header />
       <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={CheckOutPage} />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              currentUser ? <Redirect to="/" /> : <SignInUpPage />
-            }
-          />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckOutPage} />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignInUpPage />
+              }
+            />
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   );
