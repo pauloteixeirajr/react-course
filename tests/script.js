@@ -7,10 +7,12 @@ const googleDatabase = [
   'myfavouritecats.com',
 ];
 
-const googleSearch = searchInput => {
-  return googleDatabase
+const googleSearch = (searchInput, searchDatabase) => {
+  return searchDatabase
     .filter(website => website.includes(searchInput))
     .slice(0, 3);
 };
 
-googleSearch('cat');
+googleSearch('cat', googleDatabase);
+
+module.exports = googleSearch;
