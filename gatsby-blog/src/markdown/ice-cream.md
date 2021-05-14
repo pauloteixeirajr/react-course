@@ -1,6 +1,7 @@
 ---
 title: "Why I Love Ice Cream"
 date: "2017-08-10"
+description: "I love Ice Cream!"
 ---
 
 ### Ice cream is the best.
