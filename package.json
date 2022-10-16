@@ -2,8 +2,8 @@
   "name": "crwn-clothing-server",
   "version": "1.0.0",
   "engines": {
-    "node": "14.15.5",
-    "npm": "7.6.3"
+    "node": "16.13.2",
+    "npm": "8.19.2"
   },
   "scripts": {
     "client": "cd crwn-clothing && npm start",
@@ -14,13 +14,13 @@
   },
   "dependencies": {
     "cors": "2.8.5",
-    "dotenv": "14.2.0",
-    "express": "^4.17.2",
+    "dotenv": "16.0.3",
+    "express": "^4.18.2",
     "express-sslify": "^1.2.0",
     "lodash": "^4.17.21",
-    "stripe": "8.199.0"
+    "stripe": "10.14.0"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.4.0"
   }
 }
